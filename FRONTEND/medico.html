@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Hospital - Acesso do Médico</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; background-color: #f4f7f6; }
+        .container { max-width: 500px; background: white; padding: 25px; border-radius: 8px; box-shadow: 0px 0px 10px rgba(0,0,0,0.1); }
+        h2 { color: #2c3e50; margin-top: 0; }
+        .campo { margin-bottom: 15px; }
+        label { font-weight: bold; display: block; margin-bottom: 5px; }
+        input, textarea { width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+        textarea { height: 80px; resize: none; }
+        button { background-color: #2980b9; color: white; border: none; padding: 10px 15px; border-radius: 4px; cursor: pointer; font-size: 16px; width: 100%; }
+        button:hover { background-color: #2471a3; }
+        .historico-box { background-color: #ebf5fb; padding: 15px; border-left: 5px solid #2980b9; margin-bottom: 20px; border-radius: 4px; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Sistema do Médico</h2>
+        <hr>
+        <br>
+        
+        <!-- Parte 1: Simulação do Histórico do Paciente vindo do Banco -->
+        <div class="historico-box">
+            <strong>📋 Prontuário Atual do Paciente:</strong>
+            <p style="margin: 5px 0 0 0; color: #555;">Paciente triado com febre (40°C). Sem alergias conhecidas.</p>
+        </div>
+
+        <!-- Parte 2: O médico digita o diagnóstico e passa o remédio -->
+        <div class="campo">
+            <label>Diagnóstico / Sintomas:</label>
+            <textarea id="sintomas" placeholder="Ex: Paciente com sintomas de gripe forte..."></textarea>
+        </div>
+        
+        <div class="campo">
+            <label>ID do Medicamento (Farmácia):</label>
+            <input type="number" id="idMedicamento" placeholder="Ex: 1 (Paracetamol)">
+        </div>
+        
+        <div class="campo">
+            <label>Dosagem e Recomendações:</label>
+            <input type="text" id="dosagem" placeholder="Ex: Tomar de 8h em 8h por 5 dias">
+        </div>
+        
+        <button onclick="emitirReceita()">Emitir Prescrição Médica</button>
+        
+        <p id="mensagemMedico" style="margin-top:15px; font-weight:bold; color: #2980b9;"></p>
+    </div>
+
+    <script>
+        function emitirReceita() {
+            const dose = document.getElementById('dosagem').value;
+            if (dose === "") {
+                alert("Por favor, preencha as recomendações do medicamento.");
+            } else {
+                document.getElementById('mensagemMedico').innerText = "✅ Receita enviada com sucesso para a Farmácia do Hospital!";
+            }
+        }
+    </script>
+</body>
+</html>

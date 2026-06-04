@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Hospital - Farmácia</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; background-color: #f4f7f6; }
+        .container { max-width: 500px; background: white; padding: 25px; border-radius: 8px; box-shadow: 0px 0px 10px rgba(0,0,0,0.1); }
+        h2 { color: #2c3e50; margin-top: 0; }
+        .campo { margin-bottom: 15px; }
+        label { font-weight: bold; display: block; margin-bottom: 5px; }
+        input { width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+        button { background-color: #e67e22; color: white; border: none; padding: 10px 15px; border-radius: 4px; cursor: pointer; font-size: 16px; width: 100%; }
+        button:hover { background-color: #d35400; }
+        .stock-box { border: 1px dashed #e67e22; padding: 15px; background-color: #fdf2e9; margin-top: 20px; border-radius: 4px; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Controlo de Stock da Farmácia</h2>
+        <hr>
+        <br>
+        
+        <div class="campo">
+            <label>ID do Medicamento para Consultar:</label>
+            <input type="number" id="idMed" placeholder="Ex: 1">
+        </div>
+        
+        <button onclick="consultarStock()">Consultar Disponibilidade</button>
+        
+        <!-- Área de Simulação de Resposta do Banco de Dados -->
+        <div id="resultadoConsulta" class="stock-box" style="display: none;">
+            <strong>📊 Estado do Stock:</strong>
+            <p id="textoStock" style="margin: 5px 0 0 0; font-weight: bold;"></p>
+        </div>
+    </div>
+
+    <script>
+        function consultarStock() {
+            const id = document.getElementById('idMed').value;
+            const resultadoBox = document.getElementById('resultadoConsulta');
+            const textoStock = document.getElementById('textoStock');
+            
+            if (id === "") {
+                alert("Por favor, introduza o ID do medicamento.");
+                resultadoBox.style.display = "none";
+                return;
+            }
+            
+            resultadoBox.style.display = "block";
+            
+            // Simulação simples com base no ID digitado 
+            if (parseInt(id) === 1) {
+                textoStock.innerText = "✅ Paracetamol 500mg em Stock (45 unidades no lote A-2).";
+                
+                textoStock.style.color = "#27ae60";
+            } else {
+                textoStock.innerText = "⚠️ ALERTA: Medicamento não encontrado ou com Stock a ZEROS!";
+                textoStock.style.color = "#c0392b";
+            }
+        }
+    </script>
+</body>
+</html>
