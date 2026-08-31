@@ -28,10 +28,9 @@
         </div>
         
         <button onclick="consultarStock()">Consultar Disponibilidade</button>
-        
-        <!-- Área de Simulação de Resposta do Banco de Dados -->
+
         <div id="resultadoConsulta" class="stock-box" style="display: none;">
-            <strong>📊 Estado do Stock:</strong>
+            <strong>Estado do Stock:</strong>
             <p id="textoStock" style="margin: 5px 0 0 0; font-weight: bold;"></p>
         </div>
     </div>
@@ -49,14 +48,13 @@
             }
             
             resultadoBox.style.display = "block";
-            
-            // Simulação simples com base no ID digitado 
+
             if (parseInt(id) === 1) {
-                textoStock.innerText = "✅ Paracetamol 500mg em Stock (45 unidades no lote A-2).";
+                textoStock.innerText = "Paracetamol 500mg em Stock (45 unidades no lote A-2).";
                 
                 textoStock.style.color = "#27ae60";
             } else {
-                textoStock.innerText = "⚠️ ALERTA: Medicamento não encontrado ou com Stock a ZEROS!";
+                textoStock.innerText = "ALERTA: Medicamento não encontrado ou com Stock a ZEROS!";
                 textoStock.style.color = "#c0392b";
             }
         }

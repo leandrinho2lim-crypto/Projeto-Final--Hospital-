@@ -22,14 +22,12 @@
         <h2>Sistema do Médico</h2>
         <hr>
         <br>
-        
-        <!-- Parte 1: Simulação do Histórico do Paciente vindo do Banco -->
+
         <div class="historico-box">
-            <strong>📋 Prontuário Atual do Paciente:</strong>
+            <strong> Prontuário Atual do Paciente:</strong>
             <p style="margin: 5px 0 0 0; color: #555;">Paciente triado com febre (40°C). Sem alergias conhecidas.</p>
         </div>
 
-        <!-- Parte 2: O médico digita o diagnóstico e passa o remédio -->
         <div class="campo">
             <label>Diagnóstico / Sintomas:</label>
             <textarea id="sintomas" placeholder="Ex: Paciente com sintomas de gripe forte..."></textarea>
@@ -56,7 +54,7 @@
             if (dose === "") {
                 alert("Por favor, preencha as recomendações do medicamento.");
             } else {
-                document.getElementById('mensagemMedico').innerText = "✅ Receita enviada com sucesso para a Farmácia do Hospital!";
+                document.getElementById('mensagemMedico').innerText = "Receita enviada com sucesso para a Farmácia do Hospital!";
             }
         }
     </script>

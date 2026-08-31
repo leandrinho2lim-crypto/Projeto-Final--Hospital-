@@ -48,14 +48,13 @@
 
     <script>
         function salvarPaciente() {
-            // Esta função avisa que o botão foi clicado. 
-            // Mais à frente, ela vai usar a API para enviar estes dados para o Java!
+
             const nomePaciente = document.getElementById('nome').value;
             
             if (nomePaciente === "") {
                 alert("Por favor, introduza o nome do paciente.");
             } else {
-                document.getElementById('mensagemSucesso').innerText = "✅ Paciente " + nomePaciente + " enviado para a fila do Dr. Leandro Rodrigues!";
+                document.getElementById('mensagemSucesso').innerText = "Paciente " + nomePaciente + " enviado para a fila do Dr. Leandro Rodrigues!";
             }
         }
     </script>
