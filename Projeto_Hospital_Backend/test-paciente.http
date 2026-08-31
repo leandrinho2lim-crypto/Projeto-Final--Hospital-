@@ -1,0 +1,12 @@
+POST
+http://localhost:8080/api/admissoes
+content-Type: application/json
+
+{
+"nome": "Rafaela",
+"data_nascimento": "1990-05-15",
+"num_utente_saude": "123456789",
+"telefone": "912345678",
+"morada": "lisboa",
+"motivo_consulta": "Dor de cabeça"
+}
