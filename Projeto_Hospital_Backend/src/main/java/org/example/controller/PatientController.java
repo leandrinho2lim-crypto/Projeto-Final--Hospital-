@@ -18,11 +18,24 @@ public class PatientController {
     @PostMapping
     @Transactional
     public ResponseEntity<String> registarAdmissao(@RequestBody Paciente paciente) {
-
         if (paciente.getNome() == null || paciente.getNome().isBlank()) {
             return ResponseEntity.badRequest().body("O nome do paciente é obrigatório.");
         }
+        Long quantidade = entityManager.createQuery(
+                        "SELECT COUNT(p) FROM Paciente p WHERE p.num_utente_saude = :numero",
+                        Long.class)
+                .setParameter("numero", paciente.getNum_utente_saude())
+                .getSingleResult();
+
+        if (quantidade > 0) {
+            return ResponseEntity.badRequest().body("Número de utente já cadastrado.");
+        }
+
         entityManager.persist(paciente);
-        return ResponseEntity.ok("Paciente " + paciente.getNome() + " registado com sucesso no PostgreSQL via Java!");
+
+        return ResponseEntity.ok(
+                "Paciente " + paciente.getNome() + " registado com sucesso no PostgreSQL via Java!"
+        );
     }
 }
+
